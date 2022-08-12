@@ -1,4 +1,4 @@
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Movies } from './pages/Movies'
 import { Movie } from './pages/Movie'
 import { Home } from './pages/Home'
@@ -8,20 +8,14 @@ import React from 'react'
 export const AppRoutes = () => {
    return (
       <BrowserRouter>
-         <React.StrictMode>
-            <Switch>
-               <Route exact path="/home">
-                  <Layout component={<Home />} />
-               </Route>
-               <Route exact path="/movies">
-                  <Layout component={<Movies />} />
-               </Route>
-               <Route exact path="/movie/:id">
-                  <Layout component={<Movie />} />
-               </Route>
-               <Redirect exact path="/" to="/home" />
-            </Switch>
-         </React.StrictMode>
+         <Routes>
+            <Route element={<Layout />}>
+               <Route path="/" element={<Navigate replace to="/home" />} />
+               <Route path="/home" element={<Home />} />
+               <Route path="/movies" element={<Movies />} />
+               <Route path="/movie/:id" element={<Movie />} />
+            </Route>
+         </Routes>
       </BrowserRouter>
    )
 }

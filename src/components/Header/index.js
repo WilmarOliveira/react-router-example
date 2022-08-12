@@ -1,13 +1,14 @@
-import { useHistory } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { ContainerHeader } from './styles'
 
 const Header = () => {
-   const history = useHistory()
+   const navigate = useNavigate()
+   const location = useLocation()
 
-   console.log(history.location.pathname)
+   console.log(location.pathname)
 
    const goToHome = () => {
-      history.push('/')
+      navigate('/')
    }
 
    return (
