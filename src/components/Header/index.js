@@ -4,6 +4,8 @@ import { ContainerHeader } from './styles'
 const Header = () => {
    const history = useHistory()
 
+   console.log(history.location.pathname)
+
    const goToHome = () => {
       history.push('/')
    }
