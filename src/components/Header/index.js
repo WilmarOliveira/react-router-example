@@ -1,4 +1,5 @@
 import { useHistory } from 'react-router-dom'
+import { ContainerHeader } from './styles'
 
 const Header = () => {
    const history = useHistory()
@@ -8,11 +9,9 @@ const Header = () => {
    }
 
    return (
-      <h1>
-         <div style={{ cursor: 'pointer' }} onClick={goToHome}>
-            Home
-         </div>
-      </h1>
+      <ContainerHeader>
+         <h2 onClick={goToHome}>Home</h2>
+      </ContainerHeader>
    )
 }
 
